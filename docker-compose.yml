@@ -1,0 +1,9 @@
+version: '3'
+services:
+  playwright-test:
+    image: playwright
+    build: .
+    container_name: playwright-docker-contaier
+    command: npm run test
+    volumes:
+      - ./:/app

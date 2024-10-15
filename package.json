@@ -8,9 +8,13 @@
     "generate:reports": "npx allure generate ./allure-results --clean",
     "open:reports": "npx allure open ./allure-report",
     "pretest": "npm run clean:reports",
-    "posttest": "npm run generate:reports && npm run open:reports",
-    "execute:script": "npx playwright test tests/pageObjectMode.spec.ts --project=chromium --headed",
-    "test": "npm run execute:script || npm run posttest"
+    "posttest": "npm run generate:reports",
+    "chromium": "npx playwright test tests/buttonHandling.spec.ts --project=chromium",
+    "firefox": "npx playwright test tests/buttonHandling.spec.ts --project=firefox",
+    "webkit": "npx playwright test tests/buttonHandling.spec.ts --project=webkit",
+    "test:chromium": "npm run chromium || npm run posttest",
+    "test:firefox": "npm run firefox|| npm run posttest",
+    "test:webkit": "npm run webkit || npm run posttest"
   },
   "keywords": [],
   "author": "",
